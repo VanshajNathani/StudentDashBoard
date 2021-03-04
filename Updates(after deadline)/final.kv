@@ -1,0 +1,418 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    Todo:
+    Cisco:
+    Monday:
+    Tuesday:
+    Wednesday:
+    Thursday:
+    Friday:
+    Chill:
+<MainWindow>:
+    name: "Main"
+    todo:todo
+    moodle:moodle
+    FloatLayout:
+        size:root.width,root.height
+        Label:
+            text: "DashBoard"
+            font_size: 55
+            pos_hint: {"center_x":0.5,"center_y":0.8}
+        
+        Label:
+            text: "Reminders and Notes functionality will be\n          added in future commitments."
+            font_size: 30
+            pos_hint: {"center_x":0.5,"center_y":0.2}
+
+        Button:
+            id:todo
+            text:""
+            pos_hint : {"center_x":0.2,"center_y":0.5}
+            size_hint: 0.1,0.1
+            on_enter:
+
+            on_release:
+                app.root.current = "Todo"
+                root.manager.transition.direction = "right"
+
+            Image:
+                source:"logos/todo.jpg"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+
+
+        Button:
+            id:moodle
+            text:""
+            pos_hint : {"center_x":0.5,"center_y":0.5}
+            size_hint: 0.13,0.17
+            on_release:
+                root.openMoodle()
+
+
+            Image:
+                source:"logos/moodle.jpg"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        Button:
+            id:cisco
+            text:""
+            pos_hint : {"center_x":0.8,"center_y":0.5}
+            size_hint: 0.12,0.07
+            on_release:
+                app.root.current = "Monday" if root.day == '1' else "Tuesday" if root.day == '2' else "Wednesday" if root.day == '3' else "Thursday" if root.day == '4' else "Friday" if root.day == '5' else "Chill"
+                root.manager.transition.direction = "left"
+
+            Image:
+                source:"logos/classlinks.png"
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+<Todo>:
+    name: "Todo"
+
+    Label:
+        text: "This is To-Do window"
+        font_size: 30
+        pos_hint: {"center_x":0.5,"center_y":0.85}
+    
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "left"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Cisco>:
+    name: "Cisco"
+    Label:
+        text: "Lecture links will appear here\ndepending upon what day it is."
+        font_size: 30
+        pos_hint: {"center_x":0.5,"center_y":0.85}
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Monday>
+    name: "Monday"
+
+    Label:
+        text: "Today's lecture links are given below"
+        font_size: 30
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+  
+
+    Button:
+        text: "IC 252"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.7}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic252()
+
+    Button:
+        text: "IC 111"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.55}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic111()
+
+    Button:
+        text: "IC 141"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.4}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic141()
+
+    Button:
+        text: "IC 140"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.25}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic140()
+
+    Button:
+        text: "HS 342"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.1}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs342()
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Tuesday>
+    name: "Tuesday"
+
+    Label:
+        text: "Today's lecture links are given below"
+        font_size: 30
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+  
+
+    Button:
+        text: "HS 342"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.7}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs342()
+
+    Button:
+        text: "IC 152"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.55}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic152()
+
+    Button:
+        text: "IC 252"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.4}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic252()
+
+    Button:
+        text: "hs 106"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.25}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs106()
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Wednesday>
+    name: "Wednesday"
+
+    Label:
+        text: "Today's lecture links are given below"
+        font_size: 30
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+  
+
+    Button:
+        text: "IC 111"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.7}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic111()
+
+    Button:
+        text: "IC 141"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.55}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic141()
+
+    Button:
+        text: "IC 152"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.4}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic152()
+
+    Button:
+        text: "IC 140"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.25}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic140()
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Thursday>
+    name: "Thursday"
+
+    Label:
+        text: "Today's lecture links are given below"
+        font_size: 30
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+  
+
+    Button:
+        text: "IC 152"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.7}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic152()
+
+    Button:
+        text: "HS 342"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.55}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs342()
+
+    Button:
+        text: "HS 106"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.4}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs106()
+
+    Button:
+        text: "IC 111"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.25}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic111()
+
+    Button:
+        text: "IC 252"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.1}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic252()
+
+    Button:
+        id:home
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Friday>
+    name: "Friday"
+
+    Label:
+        text: "Today's lecture links are given below"
+        font_size: 30
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+  
+
+    Button:
+        id:home
+        text: "IC 152P"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.7}
+        size_hint: 0.9,0.1
+        on_release:
+            root.ic152p()
+
+    Button:
+        id:home
+        text: "HS 106"
+        font_size:40
+        pos_hint : {"center_x":0.5,"center_y":0.55}
+        size_hint: 0.9,0.1
+        on_release:
+            root.hs106()
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+<Chill>
+    name: "Chill"
+
+    Label:
+        text: "It's weekend today kiddo"
+        font_size: 40
+        pos_hint: {"center_x":0.55,"center_y":0.85}
+
+    Label:
+        text: "So chill out"
+        font_size: 60
+        pos_hint: {"center_x":0.5,"center_y":0.5}
+
+    Button:
+        id:home
+        text:""
+        font_size:40
+        pos_hint : {"center_x":0.12,"center_y":0.85}
+        size_hint: 0.13,0.17
+        on_release:
+            app.root.current = "Main"
+            root.manager.transition.direction = "right"
+
+        Image:
+            source:"logos/home.jpg"
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
